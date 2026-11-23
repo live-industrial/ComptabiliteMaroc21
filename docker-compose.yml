@@ -1,0 +1,21 @@
+# Utilisable tel quel avec `docker compose up -d --build` ou comme "Docker Compose" dans Coolify.
+services:
+  compta:
+    build: .
+    restart: unless-stopped
+    environment:
+      JWT_SECRET: ${JWT_SECRET:?Définissez JWT_SECRET (chaîne aléatoire longue)}
+      TRUST_PROXY: ${TRUST_PROXY:-1}
+      BACKUP_KEEP: ${BACKUP_KEEP:-30}
+      TOTP_KEY: ${TOTP_KEY:-}
+      DB_FILE: /data/comptabilite.sqlite
+    expose:
+      - "3000"
+    volumes:
+      - compta-data:/data
+      - compta-backups:/app/backups
+      - compta-uploads:/app/uploads
+volumes:
+  compta-data:
+  compta-backups:
+  compta-uploads:

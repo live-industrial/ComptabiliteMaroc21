@@ -1,0 +1,16 @@
+node_modules/
+database/*.sqlite*
+backups/*.sqlite
+uploads/*
+!uploads/.gitkeep
+.env
+.jwt-secret
+ .env .jwt-secret node_modules/ backups/ database/ data/ uploads/
+
+.env
+.jwt-secret
+node_modules/
+backups/
+database/
+data/
+uploads/

@@ -1,0 +1,7 @@
+node_modules
+database/*.sqlite*
+backups/*.sqlite
+.jwt-secret
+.env
+.git
+test
